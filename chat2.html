@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://cdn.tailwindcss.com"></script>
+		<title>Chat App</title>
+</head>
+<body class="bg-amber-300 flex items-center justify-center h-screen text-neutral-700">
+    <div class="bg-white p-4 rounded-lg shadow-xl w-1/2 h-1/2 flex flex-col">
+        <div id="chat-text" class="flex flex-col gap-2 p-1 flex-1 overflow-y-auto"></div>
+        <div class="mt-6 w-full flex gap-2 rounded-md">
+            <input class="flex-1 bg-neutral-100 p-2 rounded-md shadow-md px-4 focus:outline-none caret-amber-500" id="chat-input" type="text" placeholder="Enter your message here"></input>
+            <button class="send font-bold tracking-wide p-4 px-8 pr-7 rounded-md shadow-md uppercase text-sm text-white bg-amber-500">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1.4em" height="1.4em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><path fill="currentColor" d="m2 21l21-9L2 3v7l15 2l-15 2v7Z"/></svg>
+            </button>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.send').addEventListener('click', function(e){
+            e.preventDefault();
+            
+            const message = document.getElementById('chat-input').value;
+
+            if (message) {
+                const box = `
+                    <div class="w-full flex justify-end">
+                        <div class="bg-white p-4 rounded-md shadow-md bg-neutral-100 max-w-[50%]">
+                            ${message}
+                        </div>
+                    </div>
+                `
+
+                document.getElementById("chat-text").innerHTML += box;
+                document.getElementById("chat-input").value = "";
+            }
+        }); 
+    </script>
+</body>
+</html>

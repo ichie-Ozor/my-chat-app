@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chat.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="chat">
+        <div class="chat--text2" id="chat--text1"></div>
+        <div class="chat__text" id="chat--text1">
+            <input id="chat-text" type="text" placeholder="text"></input>
+            <button class="send">send</button>
+        </div>
+    </div>
+     <script>
+    //  login
+    // document.querySelector('.auth3').addEventListener('click', function(e){
+    //     e.preventDefault();
+        
+    //     const auth1 = document.getElementById('auth1').value;
+    //     const auth2 = document.getElementById('auth2').value;
+    //     // const password = 'jjjj'
+    //     if(auth1 === 'jjjj' && auth2 === 1111){
+    //         document.getElementById('chat--text1').style.opacity = 10;
+    //     };
+    
+    // });
+
+       document.querySelector('.send').addEventListener('click', function(e){
+        e.preventDefault();
+        
+        const getTxt = document.getElementById('chat-text').value;    //this gets the input
+        // const createDiv = document.createElement('div');  //this create a new div tag
+        // createDiv.setAttribute('class', 'creatDiv'); //this adds attribute to the new div tag
+        // const createElemTxt = document.createTextNode(`${getTxt}`) // this gets the content of the input
+        // createDiv.appendChild(createElemTxt);  //this adds the content of the input to the new div tag
+        // document.body.appendChild(createDiv);  //this pastes the new div with its content on the body
+        
+        if (getTxt) {
+            const createElemTxt = `
+             <div class="creatDiv">
+                ${getTxt}
+             </div>
+            `
+       
+        document.querySelector('.chat--text2').innerHTML += createElemTxt;
+        document.getElementById('chat-text').value="";  // this refreshes the input tag i.e clears it
+         }
+    }); 
+
+    </script>
+</body>
+</html>
